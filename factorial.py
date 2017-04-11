@@ -4,9 +4,8 @@
 n = input()
 n = int(n)
 #初始化数据
-
+Out=""
 x = 0
-#j = 1
 #计算阶乘之和模块
 for i in range(n):
     i += 1
@@ -19,7 +18,16 @@ for i in range(n):
 #将阶乘之和末尾六位数字输出
 m = str(x)
 for j in range(6):
-    j = 0 - (j + 6)
-    print(m[j], end='')
-
+    i = 0 - (6 - j)
+#    print(m[j], end='')
 #输入20时输出出现811149%
+#后续调试发现输出的位数错误
+#但是修正后发现使用“end=''”无法消除百分号
+#改为输出字符串
+    Out+=m[i]
+#    Out = Out.join(m[i])
+print(Out)
+
+#join函数返回一个字符串，为iterable可迭代对象中字符串的连接。
+#如果可迭代中有任何非字符串值，包括bytes对象，则会引发TypeError。
+# 元素之间的分隔符是提供该方法的字符串。
