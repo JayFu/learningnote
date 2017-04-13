@@ -8,7 +8,8 @@ OriginS = input()
 n = int(OriginS[0])
 k = int(OriginS[-1])
 OutputLast = ""
-CounterX = int(n / k + 1)
+#加入CounterX帮助计算以及防止越界，但是后期仍然出现越界问题，取消
+
 #判断
 #if (k<=n & n<=1000 & k>0):
 if(k<=n | n<=1000 | k>0):
@@ -26,7 +27,9 @@ if(k<=n | n<=1000 | k>0):
 #            print(OutputOri)
 #            OutputOri[CounterY] = not OutputOri[CounterY]
     for i in range(2, k+1):
+        CounterX = int(n // i)
         for j in range(1,CounterX+1):
+            print(i,j)
 #        for j in range(CounterX):
 #数据会越界，起先在初始化时加入更多数据，但是容易造成处理不当，改进为加入判断
             if ((i*j-1) > n):
