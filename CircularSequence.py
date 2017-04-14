@@ -3,7 +3,7 @@
 #样例输出： CCCT AGCTCGAGTC
 
 #输入，保存在列表中
-OriginDNAList = list(input())
+OriginDNAList = input()
 #防止越界
 if (len(OriginDNAList) > 100 ):
     print('error')
@@ -16,3 +16,9 @@ if (len(OriginDNAList) > 100 ):
 #>>> True
 OutputDNAList = OriginDNAList
 #开始遍历
+for i in range(len(OriginDNAList)):
+    ListPointer = OriginDNAList[i:len(OriginDNAList)] + OriginDNAList[:i]
+    if (ListPointer < OutputDNAList):
+        OutputDNAList = ListPointer
+
+print(OutputDNAList)
