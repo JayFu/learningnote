@@ -4,7 +4,6 @@
 #输出[0, 1]
 class Solution(object):
     def twoSum(self, nums, target):
-        outputlist = ''
         for i in range(len(nums)):
             for j in range(i, len(nums)):
 #                if nums[i]+nums[j]==target: print([i, j])
@@ -16,3 +15,12 @@ class Solution(object):
                     return [i, j]
 
 #在LeetCode上解答的第一个算法题，运行时间为5102ms，击败了5.35%的提交者
+#两层循环导致时间增多，查看别人源码，使用的是一层循环加上dic的方式
+    def twoSum(self, nums, target):
+        NumDic = {}
+        for i in range(len(nums)):
+            if target - nums[i] in NumDic:
+                return [NumDic[target-nums[i]], i]
+            NumDic[nums[i]] = i
+        return 0 
+    
