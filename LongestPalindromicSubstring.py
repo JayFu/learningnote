@@ -33,7 +33,6 @@
 
 s = 'abcdasdfghjkldcba'
 #在判断是否是回文串时，采用了判断子字符串是否存在于逆序字符串中的方法。但是在这个例子中很明显得出了错误的结果
-#
 
 OutPalStr = ''
 TrapStr = ''
@@ -47,7 +46,13 @@ TrapStr = ''
 #                 OutPalStr = s [i:j]
 # 整个代码时间复杂度为O(n^3)，测试时出现超时问题，改用其他的方法
 
+# 查找得到一种时间复杂度为O(n)的Manacher算法，在另一个文件中测试
+# 原有的注释内代码的思路为从头遍历所有子串确认回文，导致时间复杂度高，这里尝试采用从每个子串两头向中点遍历
 
+for i in range(len(s)):
+    for j in range(i, len(s)+1):
+        TrapStr = s[i:j]
+        
 
 print(OutPalStr)
         
