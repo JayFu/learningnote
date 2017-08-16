@@ -239,3 +239,39 @@
 #http://blog.csdn.net/gzxcyy/article/details/8694212
 #在该网站中看见字符串连接使用加号“+”则会进行多次申请内存和拷贝，而join只会进行一次
 #由于目前掌握无法验证，暂时存疑
+
+
+
+#正则表达式主要操作
+import re
+r1 = re.compile("abc")
+#生成与abc对应的正则表达式对象并赋给r1
+re.search(r1, "abcabcababbabaca", flag=0)#书上的标记为flag = 0,但是python自动弹出的是flags = 0,书上提及该功能不重要，将不涉及
+#在“abcabcababbabaca”中检索与r1匹配的子串
+#成功返回一个match类型对象，否则None。
+re.match(r1, "aavcccavaavacxb")
+#在"aavcccavaavacxb"中检索与r1匹配的前缀
+#成功返回一个match类型对象，否则None
+re.split(' ',"abc sfd asa ddf ert",maxsplit=0, flags=0)
+#从"abc sfd asa ddf ert"将空格作为分割符，得到
+# ['abc', 'sfd', 'asa', 'ddf', 'ert']
+#maxsplit表示最大分割数，默认，即0表示处理完整个string
+re.split(' ', '1 2 3  4    5')
+# ['1','2','3',' ','4',' ',' ',' ','5']
+re.findall(pattern, string, flags=0)
+#返回一个表，包含找到的所有匹配的子串
+
+#match对象
+#match对象可以用于逻辑判断，搜索到即为真，比如
+if match111 = re.search('sda', 'sssssad'):pass
+#match还有一些可供使用的方法
+match111.group()
+#取得被匹配的子串
+match111.start()
+#取得被匹配的子串的开始位置
+match111.end()
+#取得被匹配的子串的结束位置
+#存在 mat.group() == text[mat.start() : mat.end()]
+match111.span()
+#得到由开始位置和结束位置形成的二元组
+#存在 mat.span() == mat.start() , mat.end()
