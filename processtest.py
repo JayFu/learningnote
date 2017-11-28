@@ -118,58 +118,58 @@
 
 
 #单链表的实现
-class LNode:
-    def __init__(self, elem, next_=None):
-        self.elem = elem
-        self.next = next_
-#简单的表结点类
-# 引入一个LeetCode上的链表问题“AddTwoNumbers”，见同文件夹文件
+# class LNode:
+#     def __init__(self, elem, next_=None):
+#         self.elem = elem
+#         self.next = next_
+# #简单的表结点类
+# # 引入一个LeetCode上的链表问题“AddTwoNumbers”，见同文件夹文件
 
-llist1 = LNode(1)
-p = llist1
-for i in range(2,13):
-    p.next = LNode(i)
-    print("step",i,p.elem)
-    p = p.next
-print(p.elem, llist1.next.elem)
-#p = p.next 是遍历的基础方法
+# llist1 = LNode(1)
+# p = llist1
+# for i in range(2,13):
+#     p.next = LNode(i)
+#     print("step",i,p.elem)
+#     p = p.next
+# print(p.elem, llist1.next.elem)
+# #p = p.next 是遍历的基础方法
 
-p = llist1
-while p is not None:
-    # print(p.elem) 遍历内容中的基础操作，以输出作为例子
-    pass
-    p = p.next
-p = llist1
-if p.next = None: return print("List is void")
-# 判空
+# p = llist1
+# while p is not None:
+#     # print(p.elem) 遍历内容中的基础操作，以输出作为例子
+#     pass
+#     p = p.next
+# p = llist1
+# if p.next = None: return print("List is void")
+# # 判空
 
-p = llist1
-q = LNode(13)
-q.next = p
-p = q
-#首端插入
+# p = llist1
+# q = LNode(13)
+# q.next = p
+# p = q
+# #首端插入
 
-p = llist1
-for i in range(2,11):
-    p.next = LNode(i)
-    p = p.next
-q = LNode(13)
-while p.next is not None:
-    if p.elem = 5:
-        q.next = p.next
-        p.next = q
-    else: p = p.next
-#中间插入
+# p = llist1
+# for i in range(2,11):
+#     p.next = LNode(i)
+#     p = p.next
+# q = LNode(13)
+# while p.next is not None:
+#     if p.elem = 5:
+#         q.next = p.next
+#         p.next = q
+#     else: p = p.next
+# #中间插入
 
-# head = head.next
-# xxx.next = xxx.next.next
-# 首端、中间删除
+# # head = head.next
+# # xxx.next = xxx.next.next
+# # 首端、中间删除
 
-def a(b):
-    pass
-b = LNode(123)
-if a(b.elem):
-    print('11')
+# def a(b):
+#     pass
+# b = LNode(123)
+# if a(b.elem):
+#     print('11')
 
 
 
@@ -388,3 +388,51 @@ if a(b.elem):
 #             p = self.top
 #             self.top = elemt
 #             self.top.next = p
+
+
+
+
+# 模拟函数调用过程，利用栈来控制函数递归，以阶乘举例
+# def norec_fact(n):
+#     res = 
+#     st = SStack()
+#     while n > 0:
+#         st.push(n)
+#         n -= 1
+#     while not st.is_empty():
+#         res *= st.pop()
+#     return res
+
+# 由于函数调用过程存在效率损失，所以将递归函数转化为非递归函数有一定价值
+# 但是目前效率损失在大多数情况下影响不大，通常递归即可满足需要。
+
+
+
+# 迷宫问题
+# 回溯法
+# 采用栈来记录需要转向的位置
+# 将通过的位置元素转化为2以防止搜索路径过程中重复搜索甚至死循环
+# 用一个list记录四个搜索方向，每个方向对应一个元素下标的操作
+# 用栈记录有岔路的位置，一个方向搜索结束后，若没有结果，返回栈顶记录的位置
+# 在入栈时，需要考虑是否输出结果路径
+# 如果要输出，则需要把每个经过的点全部入栈
+# 如果不需要，则只需在栈中保存有其他未探索方向的点
+
+# 逐步扩张法/“齐头并进”
+# 采用队列来记录需要寻找的位置
+# 开始时，队列里只有一个开头位置
+# 按照队列的顺序，在每个位置寻找其他方向是否可走或走过，如果可走，将该位置压入队列
+# 直到找到出口或者队列为空
+# 但是该方法无法追溯出路径，需要记录每个位置的上个位置，用于在抵达终点后反向追溯得出路径
+# 该记录，在迷宫问题中状态不多可以接受，但是在某些情况下，尤其是状态空间宽度较广时，会造成极大负担
+# 尤其该技术可能记录了大量和解路径无关的信息
+
+# 基于栈的搜索即为深度优先搜索，基于队列的搜索即为宽度优先搜索
+
+# 对于深度优先搜索和宽度优先搜索的选择，主要影响因素有：
+# 搜索空间的宽度和深度情况、是否有穷，是否有解，需要找到的是一个解，全部解，还是最优解
+
+
+
+
+# 二叉树和树
