@@ -241,7 +241,42 @@
 
 #http://blog.csdn.net/gzxcyy/article/details/8694212
 #在该网站中看见字符串连接使用加号“+”则会进行多次申请内存和拷贝，而join只会进行一次
-#由于目前掌握无法验证，暂时存疑
+#从该链接看，使用“+”会使空间消耗增加，而使用join时由于会统计元素长度，所以会使时间消耗增加
+#目前没有掌握测试空间消耗，写出以下代码比较二者的时间复杂度
+
+# from multiprocessing import Pool
+# import os, time, random
+# NNN = 10000000
+# def count_plus_time():
+#     start = time.time()
+#     a = ''
+#     for i in range(NNN):
+#         a += str(i)
+#     end = time.time()
+#     print('Task plus runs %0.2f seconds.' %(end - start))
+
+# def count_join_time():
+#     start = time.time()
+#     a = ''
+#     for i in range(NNN):
+#         a.join(str(i))
+#     end = time.time()
+#     print('Task join runs %0.2f seconds.' %(end - start))
+
+# count_plus_time()
+# count_join_time()
+
+# 在上面的代码中，NNN=1000000和NNN=10000000结果如下
+# Jay-FudeMacBook-Pro% python3 processtest.py
+# Task plus runs 0.47 seconds.
+# Task join runs 0.75 seconds.
+# Jay-FudeMacBook-Pro% python3 processtest.py
+# Task plus runs 4.78 seconds.
+# Task join runs 8.01 seconds.
+# 显然，使用+号时速度会更快。在原链接结论不变的情况下，
+# 可以认为join方法牺牲了时间节省了空间，而+号方法则相反
+
+
 
 
 
@@ -436,3 +471,4 @@
 
 
 # 二叉树和树
+# 
