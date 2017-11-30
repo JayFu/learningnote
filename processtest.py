@@ -239,6 +239,7 @@
 
 
 
+
 #http://blog.csdn.net/gzxcyy/article/details/8694212
 #在该网站中看见字符串连接使用加号“+”则会进行多次申请内存和拷贝，而join只会进行一次
 #从该链接看，使用“+”会使空间消耗增加，而使用join时由于会统计元素长度，所以会使时间消耗增加
@@ -275,7 +276,6 @@
 # Task join runs 8.01 seconds.
 # 显然，使用+号时速度会更快。在原链接结论不变的情况下，
 # 可以认为join方法牺牲了时间节省了空间，而+号方法则相反
-
 
 
 
@@ -471,4 +471,25 @@
 
 
 # 二叉树和树
-# 
+# 二叉树的List实现
+# 空树使用None表示
+# 非空用包含三个元素的表[d, l, r]表示，d表示根结点元素，l和r是子树
+def BinTree(data, left = None, right = None): #构造函数
+    return [data, left, right]
+def is_empty_BTree(btree):#判空函数
+    return btree is None
+def root(btree):#访问根节点
+    return btree[0]
+def left(btree):#访问左子树
+    return btree[1]
+def right(btree):#访问右子树
+    return btree[2]
+def set_root(btree, data):#设置根节点
+    btree[0] = data
+def set_left(btree, data):
+    btree[1] = data
+def set_right(btree, data):
+    btree[2] = data
+t1 = BinTree(2, BinTree(4), BinTree(8))
+print(t1)
+>>>[2, [4, None, None], [8, None, None]]
