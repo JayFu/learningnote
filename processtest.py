@@ -474,22 +474,24 @@
 # 二叉树的List实现
 # 空树使用None表示
 # 非空用包含三个元素的表[d, l, r]表示，d表示根结点元素，l和r是子树
-def BinTree(data, left = None, right = None): #构造函数
-    return [data, left, right]
-def is_empty_BTree(btree):#判空函数
-    return btree is None
-def root(btree):#访问根节点
-    return btree[0]
-def left(btree):#访问左子树
-    return btree[1]
-def right(btree):#访问右子树
-    return btree[2]
-def set_root(btree, data):#设置根节点
-    btree[0] = data
-def set_left(btree, data):
-    btree[1] = data
-def set_right(btree, data):
-    btree[2] = data
-t1 = BinTree(2, BinTree(4), BinTree(8))
-print(t1)
->>>[2, [4, None, None], [8, None, None]]
+# def BinTree(data, left = None, right = None): #构造函数
+#     return [data, left, right]
+# def is_empty_BTree(btree):#判空函数
+#     return btree is None
+# def root(btree):#访问根节点
+#     return btree[0]
+# def left(btree):#访问左子树
+#     return btree[1]
+# def right(btree):#访问右子树
+#     return btree[2]
+# def set_root(btree, data):#设置根节点
+#     btree[0] = data
+# def set_left(btree, data):#设置左节点
+#     btree[1] = data
+# def set_right(btree, data):#设置右结点
+#     btree[2] = data
+# t1 = BinTree(2, BinTree(4), BinTree(8))
+# print(t1)
+# >>>[2, [4, None, None], [8, None, None]]
+
+
