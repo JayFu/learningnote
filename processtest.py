@@ -506,3 +506,61 @@
 # 取堆顶后，从原堆最下方取一个元素置于堆顶，向下筛选：
 # 将其和左右子节点比较，和左右子节点中最大的数交换，直到本身最大或没有子节点
 # 这种优先队列里加入和弹出元素的操作具有O(logn)的时间复杂度
+# 使用list储存元素，表未加入元素，表首作为堆顶
+
+class PrioQueue:
+    """Implementing priority queues using heaps
+    """
+    def__init__(self, elist=[]):
+        self._elem = list(elist)
+        if elist:
+            self.buildheap()
+        
+    def is_empty(self):
+        return not self._elem
+
+    def peek(self):
+        if self.is_empty:
+            raise PrioQueueError("in peek")
+        return self._elem[0]
+
+# 入堆操作，并没有将e先入堆再排序，而是先加入假元素保持list长度一致，再找到e的位置进行入堆并依次调整子节点
+    def enqueue(self, e):
+        self._elem.append(None)
+        self.siftup(e, len(self._elem) - 1)
+    def siftup(self, e, last):
+        elem, i, j = self._elem, last, (last-1)//2
+        while i > 0 and e < elem[j]:
+            elem[i] = elem[j]
+            i, j = j, (j-1)//2
+        elem[i] = e
+
+# 出堆操作，同样也是先找位置再调整其余节点
+    def dequeue(self):
+        if self.is_empty: raise PrioQueueError("in dequeue")
+        elem = self._elem
+        outpute = elem[0]
+        e = elem.pop()
+        if len(elem) > 0:
+            self.siftdown(e, 0, len(elem))
+        return outpute
+    def siftdown(self, e, begin, end):
+        elem, i, j = self._elem, begin, begin * 2 + 1
+        while j < end:
+            if j + 1 < end  and elem[j + 1] < elem[j]:
+                j += 1      #elem[j]优先级大于等于兄弟结点
+            if e < elem[j]:
+                break       # e在三者中优先级最高
+            elem[i ] = elem[j]      #上移操作
+            i, j = j, 2 * j + 1
+        elem[i] = e
+
+# 从一个已有list基础上构建一个初始堆 
+# 函数中，从end//2的位置，也就是最下最右的分之支点开始，向左一个一个建堆，再到上层
+# 每一步的工作是在两个已有的堆上加一个根元素并执行一次向下筛选
+# 复杂度为O(n)
+    def buildheap(self):
+        end = len(self._elem)
+        for i in range(end//2, -1, -1):
+            self.siftdown(self._elem[i], i, end)
+    
