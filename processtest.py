@@ -549,9 +549,9 @@
 #         while j < end:
 #             if j + 1 < end  and elem[j + 1] < elem[j]:
 #                 j += 1      #elem[j]优先级大于等于兄弟结点
-#             if e < elem[j]:
+#             if e > elem[j]:
 #                 break       # e在三者中优先级最高
-#             elem[i ] = elem[j]      #上移操作
+#             elem[i] = elem[j]      #上移操作
 #             i, j = j, 2 * j + 1
 #         elem[i] = e
 
@@ -564,3 +564,24 @@
 #         for i in range(end//2, -1, -1):
 #             self.siftdown(self._elem[i], i, end)
     
+# 堆排序
+# 先通过向下筛选，依次将掏出的元素放在表的后部
+# def heap_sort(elem):
+#     def siftdown(elem, e, begin, end):
+#         i, j = begin, begin * 2 + 1
+#         while j < end:
+#             if j + 1 < end  and elem[j + 1] < elem[j]:
+#                 j += 1      #elem[j]优先级大于等于兄弟结点
+#             if e > elem[j]:
+#                 break       # e在三者中优先级最高
+#             elem[i] = elem[j]      #上移操作
+#             i, j = j, 2 * j + 1
+#         elem[i] = e
+#     end = len(elem)
+#     for i in range(end // 2, -1, end):      # 建堆
+#         siftdown(elem, elem[i], i, end)
+#     for i in range((end - 1), 0, -1):       # 弹出最优先元素放在表后再重新筛选
+#         e = elem[i]
+#         elem[i] = elem[0]
+#         siftdown(elem, e, 0, i)
+# 时间复杂度O(nlog n)
