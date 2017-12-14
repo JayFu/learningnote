@@ -6,11 +6,12 @@
 
 def pingpong(n):
     """返回乒乓序列的第n个元素
-
     >>> pingpong(7)
     7
     >>> pingpong(8)
     6
+    >>> pingpong(10)
+    4
     >>> pingpong(15)
     1
     >>> pingpong(21)
@@ -32,4 +33,17 @@ def pingpong(n):
     >>> pingpong(100)
     2
     """
+    mask_n, output_n = 0, 0
+
+    for i in range(n):
+        if (i % 7 == 0) or (i % 10 == 7):
+            if mask_n == 0: mask_n = 1
+            else: mask_n = 0
+        if mask_n == 1: output_n += 1
+        else: output_n -= 1
     
+    return output_n
+
+if __name__ == '__main__':
+    import doctest
+    doctest.testmod()
