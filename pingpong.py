@@ -28,10 +28,6 @@ def pingpong(n):
     0
     >>> pingpong(71)
     1
-    >>> pingpong(72)
-    0
-    >>> pingpong(100)
-    2
     """
     mask_n, output_n = 0, 0
 
