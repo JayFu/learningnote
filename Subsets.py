@@ -84,3 +84,6 @@ def Subsets(nums):
 if __name__ == '__main__':
     a = [1, 2, 3]
     print(Subsets(a))
+
+# 后记：
+# 观察其他人代码发现自己的代码非常冗余，下次尝试重构改进
