@@ -15,11 +15,14 @@ def minSteps(n):
     """
     """
     zed, zoe, cait = 0, 0, 0
-    while zoe is not n:
+    while zed is not n:
         cait += 1
-        if pass:
-            zed = zoe
-        if pass:
-            zoe += zed
+        
     
     return cait
+
+def Copy_all(copyn, zoe):
+    zoe = copyn
+def paste(zoe, zed):
+    zed += zoe
+
