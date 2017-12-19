@@ -23,6 +23,9 @@ def minSteps(n):
 
 def Copy_all(copyn, zoe):
     zoe = copyn
+    
 def paste(zoe, zed):
     zed += zoe
+
+
 
