@@ -78,6 +78,8 @@ if p.next is not None:
             OutputNodeList.val = OutputNodeList.val - 10
         else:
             carry = 0
+        p = p.next
+        OutputNodeList = OutputNodeList.next
 elif q.next is not None:
      while q.next is not None:
         OutputNodeList.val = q.val + carry
@@ -86,7 +88,9 @@ elif q.next is not None:
             OutputNodeList.val = OutputNodeList.val - 10
         else:
             carry = 0
+        q = q.next 
+        OutputNodeList = OutputNodeList.next
 elif carry is not None: OutputNodeList.val = carry
 else: pass
 
-print(OutputNodeList.val)
+return OutputNodeList
