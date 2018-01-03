@@ -93,8 +93,8 @@ elif q.next is not None:
 elif carry is not None: OutputNodeList.val = carry
 else: pass
 
-return OutputNodeList
-
-
-
-def 
+# return OutputNodeList
+m = OutputNodeList
+while m.val is not None:
+    print(m.val)
+    m = m.next
