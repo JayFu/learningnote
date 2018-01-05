@@ -17,7 +17,7 @@ for CounterNum in range(100,1000):
         j = int(j)
 #        TotleNum += (j ^ 3)
 #        次方^无法使用，改成j*j*j
-        TotleNum += (j * j * j)
+        TotleNum += (j ** 3)
 #判断并输出
     if TotleNum == CounterNum:
         print(TotleNum)
