@@ -5,14 +5,14 @@ rm(list = ls())
 dev.off()
 
 #First, we will start by loading our dataset. As a start we will use a default dataset provided by R
-Heart <- read.csv("D:/RLan/Heart.csv")
+Heart <- read.csv(file.choose())
 #The dataset is called Heart:
 help(Heart)
 
 #always make a copy of the data to work on to have a backup ready for your original data!
 data <- Heart
-
-#start by exploring your data using the summary function
+head(data)
+dim(data)
 summary(data)
 
 #Cluster your data for discovering the natural groups (iris species)
