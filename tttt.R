@@ -27,15 +27,6 @@ print(paste('Accuracy',1-misClasificError))
 
 
 
-# help(Heart)
-
-# # make a copy of the data to work on 
-# data <- Heart
-# # pre-process data
-# head(data)
-# dim(data)
-# summary(data)
-
 # # download and install packages
 # install.packages("rpart")
 # install.packages("caret")
