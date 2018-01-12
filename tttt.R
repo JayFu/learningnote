@@ -24,6 +24,9 @@ misClasificError <- mean(fitted.results != test$AHD)
 print(paste('Accuracy',1-misClasificError))
 
 
+
+
+
 # help(Heart)
 
 # # make a copy of the data to work on 
