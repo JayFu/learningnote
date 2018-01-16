@@ -6,13 +6,14 @@ dev.off()
 
 # First, we will start by loading our dataset
 Heart <- read.csv(file.choose())
-data <- Heart
+data <- Heart$AHD + Heart$Ca + Heart$ChestPain
 
 # split data
 set.seed(10)
 train <- createDataPartition(data$AHD, p = 0.7, list = FALSE)
 trainning <- data[train, ]
 test  <-  data[-train, ]
+
 
 # Logistic Regression part
 # Data Exploration part
