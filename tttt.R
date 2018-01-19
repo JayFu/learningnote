@@ -6,7 +6,7 @@ dev.off()
 
 # First, we will start by loading our dataset
 Heart <- read.csv(file.choose())
-data <- Heart$AHD + Heart$Ca + Heart$ChestPain
+data <- Heart[c(4,9,11,13,14,15)]
 
 # split data
 set.seed(10)
@@ -18,7 +18,7 @@ test  <-  data[-train, ]
 # Logistic Regression part
 # Data Exploration part
 LRModel <- train(AHD ~., data = trainning, method = "glm", family = "binomial")
-summary(Model)
+summary(LRModel)
 
 # predict
 fitted.results <- predict(LRModel,newdata = test,type='prob')
@@ -69,12 +69,12 @@ for (i in 1:(14-1)){
     test_model <- randomForest(AHD~.,data=data,mtry=i)
     err <- mean(test_model$err)    
     print(err)
-# mtry = 1
+mtry = 1
 
 # confirm number of tree
 tran_model <- randomForest(AHD~.,data=data,mtry=1,ntree=2000)
 plot(tran_model)
-# ntree = 1000
+ntree = 1500
 
 # build model
 tran_model <- randomForest(AHD~.,data=data,mtry=1,ntree=1000)
