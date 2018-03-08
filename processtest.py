@@ -587,3 +587,28 @@
 #         elem[i] = elem[0]
 #         siftdown(elem, e, 0, i)
 # 时间复杂度O(nlog n)
+
+# # 链接类实现二叉树和遍历算法
+# # 二叉树类
+# class BinTNode:
+#     def __init__(self, dat, left = None, right = None):
+#         self.data = dat
+#         self.left = left
+#         self.right = right
+# # 构造一个包含3个结点的二叉树
+# t = BinTNode(1, BinTNode(2), BinTNode(3))
+# # 统计结点个数（递归）或求值
+# def count_BinTNode(t):
+#     if t is None: return 0
+#     else:
+#         retrun 1 + count_BinTNode(t.left) + count_BinTNode(t.right)
+#     # 求值
+#         # return t.dat + count_BinTNode(t.left) + count_BinTNode(t.right)
+
+# # 深度优先递归遍历（先根序
+# def preorder(t, proc):  #proc()是一个具体的针对结点的操作函数
+#     if t is None: return 0
+#     proc(t.data)
+#     preorder(t.left)
+#     preorder(t.right)
+
