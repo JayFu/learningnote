@@ -17,3 +17,28 @@
 # 47 53 59 61 67 71 73 79 83 89
 
 # 97 101 103
+
+# 求质数方法成为本题关键，使用筛选法求质数
+# 再使用质数分布公式推算质数范围
+
+inputlist = input().split(" ")
+
+from math import log
+def EraSieve(nnn):
+    pass # 求第nnn个质数的位置
+    # 通过质数分布公式所得
+    numberlist = [True for i in range(nnn+2)]
+    templist = [2]
+    temp = 2
+    for i in range(2, nnn//2):
+        for j in range(nnn):
+            if j % temp == 0: numberlist[j] = False
+        for k in range(nnn):
+            if numberlist[k] == True:
+                temp = k
+                templist.append(temp)
+    
+        
+
+
+    
