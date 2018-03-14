@@ -27,8 +27,10 @@ from math import log
 def EraSieve(nnn):
     # x/ln x > 10000
     # x > 10000 ln x
-    # lnx < 10
+    # ln x < 10
     # x > 100000
+    # 因为以上公式并非准确值
+    # 所以在此基础上增加15%以保证不逸出
     listrange = nnn * 10 * 1.15
     # 求第nnn个质数的位置
     # 通过质数分布公式所得
