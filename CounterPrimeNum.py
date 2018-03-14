@@ -25,19 +25,27 @@ inputlist = input().split(" ")
 
 from math import log
 def EraSieve(nnn):
-    pass # 求第nnn个质数的位置
+    # x/ln x > 10000
+    # x > 10000 ln x
+    # lnx < 10
+    # x > 100000
+    listrange = nnn * 10 * 1.15
+    # 求第nnn个质数的位置
     # 通过质数分布公式所得
-    numberlist = [True for i in range(nnn+2)]
+    numberlist = [True for i in range(listrange+2)]
     templist = [2]
     temp = 2
-    for i in range(2, nnn//2):
-        for j in range(nnn):
+    for i in range(2, listrange//2):
+        for j in range(listrange):
             if j % temp == 0: numberlist[j] = False
-        for k in range(nnn):
+        for k in range(listrange):
             if numberlist[k] == True:
                 temp = k
                 templist.append(temp)
     
+    return templist
+
+
         
 
 
