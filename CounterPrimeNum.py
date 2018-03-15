@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 # 题目描述
 # 令Pi表示第i个素数。现任给两个正整数M <= N <= 10000，请输出PM到PN的所有素数。
 
@@ -21,7 +22,7 @@
 # 求质数方法成为本题关键，使用筛选法求质数
 # 再使用质数分布公式推算质数范围
 
-inputlist = input().split(" ")
+
 
 from math import log
 def EraSieve(nnn):
@@ -31,13 +32,13 @@ def EraSieve(nnn):
     # x > 100000
     # 因为以上公式并非准确值
     # 所以在此基础上增加15%以保证不逸出
-    listrange = nnn * 10 * 1.15
+    listrange = int(nnn * 10 * 1.15)
     # 求第nnn个质数的位置
     # 通过质数分布公式所得
-    numberlist = [True for i in range(listrange+2)]
+    numberlist = [True for i in range(int(listrange+2))]
     templist = [2]
     temp = 2
-    for i in range(2, listrange//2):
+    for i in range(2, int(listrange+2)):
         for j in range(listrange):
             if j % temp == 0: numberlist[j] = False
         for k in range(listrange):
@@ -47,7 +48,12 @@ def EraSieve(nnn):
     
     return templist
 
-
+if __name__ == '__main__':
+    
+    inputlist = input().split(" ")
+    nnn = int(inputlist[1])
+    outputlist = EraSieve(nnn)
+    print(outputlist)
         
 
 
