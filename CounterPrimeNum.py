@@ -48,6 +48,13 @@ def EraSieve(nnn):
     
     return templist
 
+def outprint(temp[]):
+    for i in temp:
+        if i % 10 ==9 :
+            print(temp[i])
+        else:
+            print(temp[i], end=" ")
+
 if __name__ == '__main__':
     
     inputlist = input().split(" ")
