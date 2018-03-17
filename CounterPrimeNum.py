@@ -22,45 +22,45 @@
 # 求质数方法成为本题关键，使用筛选法求质数
 # 再使用质数分布公式推算质数范围
 
-
-
-from math import log
-def EraSieve(nnn):
+def EraSieve(zoe):
     # x/ln x > 10000
     # x > 10000 ln x
     # ln x < 10
     # x > 100000
     # 因为以上公式并非准确值
     # 所以在此基础上增加15%以保证不逸出
-    listrange = int(nnn * 10 * 1.15)
+    listrange = int(zoe * 10 * 1.15)
     # 求第nnn个质数的位置
     # 通过质数分布公式所得
-    numberlist = [True for i in range(int(listrange+2))]
+    numberlist = [True for i in range(listrange + 2)]
     templist = [2]
     temp = 2
-    for i in range(2, int(listrange+2)):
+    for i in range(zoe - 1):
         for j in range(listrange):
-            if j % temp == 0: numberlist[j] = False
+            if j % temp == 0: 
+                numberlist[j] = False
         for k in range(listrange):
+            if k == 1: continue
             if numberlist[k] == True:
                 temp = k
-                templist.append(temp)
-    
+                if temp is not 1: templist.append(temp)
+                numberlist[k] = False
+                break
     return templist
 
-def outprint(temp[]):
-    for i in temp:
+def outprint(temp):
+    for i in range(len(temp)):
         if i % 10 ==9 :
             print(temp[i])
         else:
             print(temp[i], end=" ")
 
 if __name__ == '__main__':
-    
     inputlist = input().split(" ")
     nnn = int(inputlist[1])
+
     outputlist = EraSieve(nnn)
-    print(outputlist)
+    outprint(outputlist[int(inputlist[0])-1:])
         
 
 
