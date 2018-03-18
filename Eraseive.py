@@ -11,7 +11,7 @@ if __name__ == '__main__':
         for j in range(listrange):
             if j % temp == 0: 
                 numberlist[j] = False
-                print("temp = ", temp)
+                # print("temp = ", temp)
         for k in range(listrange+2):
             if k == 1: continue
             if numberlist[k] == True:
@@ -19,8 +19,6 @@ if __name__ == '__main__':
                 if temp is not 1: templist.append(temp)
                 numberlist[k] = False
                 break
-            
-
     # for k in range(listrange):
     #     if numberlist[k] == True:
     #         temp = k

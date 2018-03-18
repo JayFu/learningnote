@@ -2,7 +2,7 @@ def outprint(temp):
     for i in range(len(temp)):
         if i % 10 ==9 :
             print(temp[i])
-        elif i == len(temp):
+        elif i == (len(temp) - 1):
             print(temp[i])
         else:
             print(temp[i], end=" ")
