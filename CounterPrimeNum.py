@@ -5,7 +5,6 @@
 # 输入描述:
 # 输入在一行中给出M和N，其间以空格分隔。
 
-
 # 输出描述:
 # 输出从PM到PN的所有素数，每10个数字占1行，其间以空格分隔，但行末不得有多余空格。
 
@@ -30,16 +29,19 @@ def EraSieve(zoe):
     # 因为以上公式并非准确值
     # 所以在此基础上增加15%以保证不逸出
     listrange = int(zoe * 10 * 1.15)
+    # listrange = zoe * 10
     # 求第nnn个质数的位置
     # 通过质数分布公式所得
     numberlist = [True for i in range(listrange + 2)]
     templist = [2]
     temp = 2
     for i in range(zoe - 1):
-        for j in range(listrange):
-            if j % temp == 0: 
-                numberlist[j] = False
-        for k in range(listrange):
+        if temp ** 2 < listrange:
+            for j in range(temp - 1, listrange):
+                if numberlist[j] == True:
+                    if j % temp == 0: 
+                        numberlist[j] = False
+        for k in range(temp - 1, listrange):
             if k == 1: continue
             if numberlist[k] == True:
                 temp = k
@@ -49,8 +51,11 @@ def EraSieve(zoe):
     return templist
 
 def outprint(temp):
+    # print("222")
     for i in range(len(temp)):
         if i % 10 ==9 :
+            print(temp[i])
+        elif i == (len(temp)-1):
             print(temp[i])
         else:
             print(temp[i], end=" ")
@@ -58,9 +63,10 @@ def outprint(temp):
 if __name__ == '__main__':
     inputlist = input().split(" ")
     nnn = int(inputlist[1])
-
     outputlist = EraSieve(nnn)
+    # print(len(outputlist))
     outprint(outputlist[int(inputlist[0])-1:])
+
         
 
 
