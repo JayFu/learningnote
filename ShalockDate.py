@@ -41,25 +41,43 @@ def outprint(temp):
     else: outputlist[0] = 'SUN'
     
     if ord(outputlist[1]) < 58:
-        outputlist[1] = ord(outputlist[1]) - 48
+        outputlist[1] = int(outputlist[1])
     else: outputlist[1] = ord(outputlist[1]) - 55
     
-    print(outputlist[0], outputlist[1], ":", outputlist[2])
+    print(outputlist[0], "{:0>2d}:{:0>2d}".format(outputlist[1], outputlist[2]))
 
 if __name__ == '__main__':
-    inputlist，outputlist = [], []
-    for i in range(4):
-        inputlist.append(input())
+    inputlist, outputlist = [], []
+    # for i in range(4):
+    #     inputlist.append(input())
+
+    inputlist.append('3485djDkxh4hhGA')
+    inputlist.append('2984akDfkkkkggAdsb')
+    inputlist.append('s&hgsfdk')
+    inputlist.append('d&Hyscvnm')
     
-    firstlenth = min(len(inputlist[0], len(inputlist[1])))
-    secondlenth = min(len(inputlist[2], len(inputlist[3])))
+    firstlenth = min(len(inputlist[0]), len(inputlist[1]))
+    secondlenth = min(len(inputlist[2]), len(inputlist[3]))
 
     for i in range(firstlenth):
         if inputlist[0][i] == inputlist[1][i]:
-            outputlist.append(inputlist[0][i])
+            if (ord(inputlist[0][i]) > 64) and (ord(inputlist[0][i]) < 72):
+                outputlist.append(inputlist[0][i])
+                tempnum = i + 1
+                break
     
+    for i in range(tempnum, firstlenth):
+        if inputlist[0][i] == inputlist[1][i]:
+            # if (ord(inputlist[0][i]) > 64) and (ord(inputlist[0][i]) < 79):
+            if (ord(inputlist[0][i]) in range(65, 79)) or (int(inputlist[0][i]) in  range(10)):
+                outputlist.append(inputlist[0][i])
+                break
+
     for i in range(secondlenth):
         if inputlist[2][i] == inputlist[3][i]:
-            outputlist.append(i)
+            # if ((ord(inputlist[2][i]) > 64) and (ord(inputlist[2][i]) < 91)) or ((ord(inputlist[2][i]) > 96) and (ord(inputlist[2][i]) < 123)):            
+            if (ord(inputlist[2][i]) in range(65, 91)) or (ord(inputlist[2][i]) in range(97, 123)):
+                outputlist.append(i)
+                break
     
     outprint(outputlist)
