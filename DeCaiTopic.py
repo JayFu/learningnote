@@ -82,3 +82,18 @@
 # 10000008 75 79
 
 # 10000001 64 90
+
+
+def quicksort(temp):
+    def qsort(lst, begin, end):
+        if begin > end:
+            return
+        pivot = lst[begin].key
+        i = begin
+        for j in range(begin + 1, end + 1):
+            if lst[j].key < pivot:
+                i += 1
+                lst[i], lst[j] = lst[j], lst[i]
+        lst[begin], lst[i] = lst[i], lst[begin]
+        qsort(lst, begin, i - 1)
+        qsort(lst, i + 1, end)
