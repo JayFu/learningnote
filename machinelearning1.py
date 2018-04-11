@@ -21,3 +21,4 @@ print(knn.predict(X_test))
 # 预测并打印
 print(y_test)
 # 预期结果
+
